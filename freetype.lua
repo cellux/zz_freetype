@@ -447,7 +447,7 @@ function M.Face(source, ...)
    if type(source)=="string" then
       face = M.New_Face(source, ...)
    elseif buffer.is_buffer(source) then
-      face = M.New_Memory_Face(source:ptr(), #source, ...)
+      face = M.New_Memory_Face(source.ptr, #source, ...)
       -- keep a reference to source buffer to prevent GC (FreeType needs it)
       face._source = source
    else
